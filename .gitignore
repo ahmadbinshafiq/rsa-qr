@@ -1,0 +1,7 @@
+test
+.pytest_cache
+pem
+.pyc
+.idea
+__pycache__
+.vscode
