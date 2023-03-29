@@ -37,5 +37,5 @@ def test_qr_code(data):
 
     decode_qr = QR.read_qr(img)
 
-    assert decode_qr == (str(data) if isinstance(data, int) or isinstance(data, float) else data)
+    assert decode_qr == (str(data) if isinstance(data, (int, float)) else data)
 
