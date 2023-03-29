@@ -1,11 +1,11 @@
 from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.keys import Encryption, Decryption
-from core.qr import QR
-from models import QRModel, ImageModel
-from utils.image import ImageUtils
-from utils.parse import ParsingUtils
+from src.core.keys import Encryption, Decryption
+from src.core.qr import QR
+from src.models import QRModel, ImageModel
+from src.utils.image import ImageUtils
+from src.utils.parse import ParsingUtils
 
 
 app = FastAPI(title="QR", docs_url="/docs")
@@ -17,8 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-encryption = Encryption(public_key_path="pem/qr-public-rsa.pem")
-decryption = Decryption(private_key_path="pem/qr-private-rsa.pem")
+encryption = Encryption(public_key_path="pem/public.pem")
+decryption = Decryption(private_key_path="pem/private.pem")
 
 
 @app.get("/")

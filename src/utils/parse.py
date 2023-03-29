@@ -1,6 +1,7 @@
 from typing import Union
 
-from core.keys import Encryption, Decryption
+from src.core.keys import Encryption, Decryption
+from src.utils.text import TextUtils
 
 
 class ParsingUtils:
@@ -22,7 +23,7 @@ class ParsingUtils:
                 elif isinstance(value, list):
                     cls.parse_object(value, method)
                 else:
-                    obj[key] = method.convert(value)
+                    obj[key] = TextUtils.convert_str_to_data_type(method.convert(value))
 
         elif isinstance(obj, list):
             for item in obj:
@@ -31,7 +32,7 @@ class ParsingUtils:
                 elif isinstance(item, list):
                     cls.parse_object(item, method)
                 else:
-                    enc_item = method.convert(item)
+                    enc_item = TextUtils.convert_str_to_data_type(method.convert(item))
                     # replace the item in the list
                     obj[obj.index(item)] = enc_item
 

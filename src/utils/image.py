@@ -4,10 +4,14 @@ from typing import Union
 
 import cv2
 import numpy as np
+from qrcode.image.pil import PilImage
 from qrcode.image.pure import PyPNGImage
 
 
 class ImageUtils:
+    """
+    Image utils
+    """
 
     @staticmethod
     def image_to_base64(image: Union[np.ndarray, PyPNGImage]) -> str:

@@ -5,3 +5,5 @@ pem
 .idea
 __pycache__
 .vscode
+.coverage
+docs
